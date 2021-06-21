@@ -11,5 +11,6 @@ import java.util.List;
 @Repository
 public interface MovementRepository extends JpaRepository<Movement, Long> {
 
-
+    @Query(value = "SELECT * FROM movement m where m.id_compte = :idCompte", nativeQuery = true)
+    List<Movement> historique(@Param("idCompte") Long idCompte);
 }
